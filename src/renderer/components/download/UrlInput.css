@@ -1,0 +1,206 @@
+/* UrlInput.css — URL input area with paste button, validation, drag-drop zone */
+
+.url-input {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+/* Main input row */
+.url-input__row {
+  display: flex;
+  gap: var(--spacing-sm);
+  align-items: center;
+}
+
+/* Input wrapper with icon */
+.url-input__field-wrapper {
+  flex: 1;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+/* Link icon inside the input */
+.url-input__icon {
+  position: absolute;
+  left: 14px;
+  color: var(--color-text-tertiary);
+  pointer-events: none;
+  transition: color var(--transition-fast);
+  z-index: 1;
+}
+
+.url-input__field-wrapper:focus-within .url-input__icon {
+  color: var(--color-accent);
+}
+
+/* The actual input field */
+.url-input__field {
+  width: 100%;
+  height: 48px;
+  padding: 0 var(--spacing-md) 0 44px;
+  background-color: var(--color-input-bg);
+  border: 1px solid var(--color-input-border);
+  border-radius: var(--radius-lg);
+  font-size: var(--font-md);
+  font-family: inherit;
+  color: var(--color-text-primary);
+  outline: none;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.url-input__field::placeholder {
+  color: var(--color-text-tertiary);
+}
+
+.url-input__field:focus {
+  border-color: var(--color-input-focus);
+  box-shadow: 0 0 0 3px var(--color-accent-light);
+}
+
+.url-input__field:hover:not(:focus) {
+  border-color: var(--color-border-secondary);
+}
+
+/* Error border */
+.url-input__field--error {
+  border-color: var(--color-error);
+}
+
+.url-input__field--error:focus {
+  border-color: var(--color-error);
+  box-shadow: 0 0 0 3px var(--color-error-light);
+}
+
+/* Paste button */
+.url-input__paste-btn {
+  height: 48px;
+  width: 48px;
+  flex-shrink: 0;
+}
+
+/* Add button */
+.url-input__add-btn {
+  height: 48px;
+  padding-left: 20px;
+  padding-right: 20px;
+  flex-shrink: 0;
+  font-weight: var(--font-semibold);
+}
+
+/* Error message */
+.url-input__error {
+  font-size: var(--font-xs);
+  color: var(--color-error);
+  padding-left: 4px;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  animation: urlInputErrorIn 0.15s ease-out;
+}
+
+@keyframes urlInputErrorIn {
+  from {
+    opacity: 0;
+    transform: translateY(-2px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Site detection badge */
+.url-input__site-badge {
+  position: absolute;
+  right: 12px;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  padding: 2px 8px;
+  background-color: var(--color-accent-light);
+  color: var(--color-accent);
+  border-radius: var(--radius-full);
+  font-size: var(--font-xs);
+  font-weight: var(--font-medium);
+  pointer-events: none;
+  animation: urlInputBadgeIn 0.2s ease-out;
+}
+
+@keyframes urlInputBadgeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Drag & drop zone overlay */
+.url-input__dropzone {
+  position: relative;
+  border: 2px dashed var(--color-border-secondary);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-xl);
+  text-align: center;
+  transition: all var(--transition-fast);
+  cursor: pointer;
+}
+
+.url-input__dropzone:hover,
+.url-input__dropzone--active {
+  border-color: var(--color-accent);
+  background-color: var(--color-accent-light);
+}
+
+.url-input__dropzone-text {
+  font-size: var(--font-sm);
+  color: var(--color-text-tertiary);
+}
+
+.url-input__dropzone--active .url-input__dropzone-text {
+  color: var(--color-accent);
+}
+
+/* Textarea mode for multi-URL input */
+.url-input__textarea {
+  width: 100%;
+  min-height: 100px;
+  padding: var(--spacing-md);
+  padding-left: 44px;
+  background-color: var(--color-input-bg);
+  border: 1px solid var(--color-input-border);
+  border-radius: var(--radius-lg);
+  font-size: var(--font-sm);
+  font-family: inherit;
+  color: var(--color-text-primary);
+  outline: none;
+  resize: vertical;
+  line-height: 1.6;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.url-input__textarea:focus {
+  border-color: var(--color-input-focus);
+  box-shadow: 0 0 0 3px var(--color-accent-light);
+}
+
+/* Mode toggle for single/multi URL */
+.url-input__mode-toggle {
+  font-size: var(--font-xs);
+  color: var(--color-text-tertiary);
+  cursor: pointer;
+  transition: color var(--transition-fast);
+  background: none;
+  border: none;
+  padding: 0;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.url-input__mode-toggle:hover {
+  color: var(--color-accent);
+}

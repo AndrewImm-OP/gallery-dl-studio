@@ -1,0 +1,91 @@
+/* Light Theme */
+[data-theme='light'],
+.light {
+  --color-bg-primary: #ffffff;
+  --color-bg-secondary: #f8f9fa;
+  --color-bg-tertiary: #f1f3f5;
+  --color-bg-elevated: #ffffff;
+  --color-bg-hover: rgba(0, 0, 0, 0.04);
+  --color-bg-active: rgba(0, 0, 0, 0.08);
+
+  --color-text-primary: #1a1a2e;
+  --color-text-secondary: #6b7280;
+  --color-text-tertiary: #9ca3af;
+  --color-text-inverse: #ffffff;
+
+  --color-border-primary: #e5e7eb;
+  --color-border-secondary: #d1d5db;
+  --color-border-focus: #3b82f6;
+
+  --color-accent: #3b82f6;
+  --color-accent-hover: #2563eb;
+  --color-accent-light: rgba(59, 130, 246, 0.1);
+
+  --color-success: #10b981;
+  --color-success-light: rgba(16, 185, 129, 0.1);
+  --color-warning: #f59e0b;
+  --color-warning-light: rgba(245, 158, 11, 0.1);
+  --color-error: #ef4444;
+  --color-error-light: rgba(239, 68, 68, 0.1);
+  --color-info: #6366f1;
+  --color-info-light: rgba(99, 102, 241, 0.1);
+
+  --color-sidebar-bg: #f8f9fa;
+  --color-sidebar-hover: rgba(0, 0, 0, 0.06);
+  --color-sidebar-active: rgba(59, 130, 246, 0.1);
+
+  --color-input-bg: #ffffff;
+  --color-input-border: #d1d5db;
+  --color-input-focus: #3b82f6;
+
+  --color-scrollbar: #d1d5db;
+  --color-scrollbar-hover: #9ca3af;
+
+  --color-overlay: rgba(0, 0, 0, 0.5);
+}
+
+/* Dark Theme */
+[data-theme='dark'],
+.dark {
+  --color-bg-primary: #0f1117;
+  --color-bg-secondary: #161822;
+  --color-bg-tertiary: #1e2030;
+  --color-bg-elevated: #1e2030;
+  --color-bg-hover: rgba(255, 255, 255, 0.06);
+  --color-bg-active: rgba(255, 255, 255, 0.1);
+
+  --color-text-primary: #e4e4e7;
+  --color-text-secondary: #a1a1aa;
+  --color-text-tertiary: #71717a;
+  --color-text-inverse: #0f1117;
+
+  --color-border-primary: #27293d;
+  --color-border-secondary: #3f3f5c;
+  --color-border-focus: #6366f1;
+
+  --color-accent: #6366f1;
+  --color-accent-hover: #818cf8;
+  --color-accent-light: rgba(99, 102, 241, 0.15);
+
+  --color-success: #34d399;
+  --color-success-light: rgba(52, 211, 153, 0.15);
+  --color-warning: #fbbf24;
+  --color-warning-light: rgba(251, 191, 36, 0.15);
+  --color-error: #f87171;
+  --color-error-light: rgba(248, 113, 113, 0.15);
+  --color-info: #818cf8;
+  --color-info-light: rgba(129, 140, 248, 0.15);
+
+  --color-sidebar-bg: #161822;
+  --color-sidebar-hover: rgba(255, 255, 255, 0.06);
+  --color-sidebar-active: rgba(99, 102, 241, 0.15);
+
+  --color-input-bg: #1e2030;
+  --color-input-border: #27293d;
+  --color-input-focus: #6366f1;
+
+  --color-scrollbar: #3f3f5c;
+  --color-scrollbar-hover: #52527a;
+
+  --color-overlay: rgba(0, 0, 0, 0.7);
+}

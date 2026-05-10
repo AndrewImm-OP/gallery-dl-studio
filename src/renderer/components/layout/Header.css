@@ -1,0 +1,151 @@
+/* Header.css — Top header bar with status, theme toggle, window controls */
+
+.header {
+  height: var(--header-height);
+  background-color: var(--color-bg-secondary);
+  border-bottom: 1px solid var(--color-border-primary);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--spacing-md);
+  flex-shrink: 0;
+  position: relative;
+  z-index: var(--z-sticky);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* Draggable title bar region */
+.header__drag-region {
+  flex: 1;
+  height: 100%;
+  -webkit-app-region: drag;
+}
+
+/* Status info section */
+.header__status {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  font-size: var(--font-xs);
+  color: var(--color-text-secondary);
+  -webkit-app-region: no-drag;
+}
+
+.header__status-item {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  padding: 2px var(--spacing-sm);
+  background-color: var(--color-bg-tertiary);
+  border-radius: var(--radius-full);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.header__status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--color-success);
+  animation: headerPulse 2s ease-in-out infinite;
+}
+
+@keyframes headerPulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+/* Actions section */
+.header__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  -webkit-app-region: no-drag;
+}
+
+/* Header icon button (theme toggle, window controls) */
+.header__btn {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-md);
+  color: var(--color-text-secondary);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  position: relative;
+  outline: none;
+}
+
+.header__btn:hover {
+  background-color: var(--color-bg-hover);
+  color: var(--color-text-primary);
+}
+
+.header__btn:active {
+  background-color: var(--color-bg-active);
+  transform: scale(0.92);
+}
+
+.header__btn:focus-visible {
+  outline: 2px solid var(--color-border-focus);
+  outline-offset: -2px;
+}
+
+/* Close button special hover */
+.header__btn--close:hover {
+  background-color: var(--color-error);
+  color: white;
+}
+
+/* Theme toggle specific */
+.header__btn--theme {
+  position: relative;
+  overflow: hidden;
+}
+
+.header__btn--theme svg {
+  transition: transform var(--transition-normal);
+}
+
+.header__btn--theme:hover svg {
+  transform: rotate(15deg);
+}
+
+/* Separator between theme toggle and window controls */
+.header__separator {
+  width: 1px;
+  height: 16px;
+  background-color: var(--color-border-primary);
+  margin: 0 var(--spacing-xs);
+  opacity: 0.6;
+}
+
+/* Breadcrumb-style page title */
+.header__breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  font-size: var(--font-sm);
+  color: var(--color-text-secondary);
+  -webkit-app-region: no-drag;
+}
+
+.header__breadcrumb-item {
+  color: var(--color-text-tertiary);
+}
+
+.header__breadcrumb-current {
+  color: var(--color-text-primary);
+  font-weight: var(--font-medium);
+}
+
+.header__breadcrumb-separator {
+  color: var(--color-text-tertiary);
+  font-size: var(--font-xs);
+  opacity: 0.5;
+}

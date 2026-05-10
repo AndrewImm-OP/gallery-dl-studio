@@ -1,0 +1,283 @@
+/* DownloadItem.css — Download queue item card */
+
+.download-item {
+  padding: var(--spacing-md);
+  background-color: var(--color-bg-secondary);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border-primary);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  transition: all var(--transition-fast);
+  position: relative;
+}
+
+.download-item:hover {
+  border-color: var(--color-border-secondary);
+  box-shadow: var(--shadow-sm);
+  transform: translateY(-1px);
+}
+
+.download-item:active {
+  transform: translateY(0);
+}
+
+/* Status-specific left accent border */
+.download-item::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 8px;
+  bottom: 8px;
+  width: 3px;
+  border-radius: var(--radius-full);
+  transition: background-color var(--transition-fast);
+}
+
+.download-item--downloading::before {
+  background-color: var(--color-accent);
+}
+
+.download-item--paused::before {
+  background-color: var(--color-warning);
+}
+
+.download-item--completed::before {
+  background-color: var(--color-success);
+}
+
+.download-item--failed::before {
+  background-color: var(--color-error);
+}
+
+.download-item--pending::before {
+  background-color: var(--color-text-tertiary);
+}
+
+.download-item--cancelled::before {
+  background-color: var(--color-text-tertiary);
+}
+
+/* Top row: info + status + actions */
+.download-item__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-md);
+}
+
+/* Info section (left side) */
+.download-item__info {
+  flex: 1;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+/* Thumbnail */
+.download-item__thumbnail {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-sm);
+  object-fit: cover;
+  flex-shrink: 0;
+  background-color: var(--color-bg-tertiary);
+}
+
+/* Text info */
+.download-item__text {
+  overflow: hidden;
+  min-width: 0;
+}
+
+.download-item__title {
+  font-size: var(--font-sm);
+  font-weight: var(--font-medium);
+  color: var(--color-text-primary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.download-item__site {
+  font-size: var(--font-xs);
+  color: var(--color-text-tertiary);
+  margin-top: 1px;
+  display: flex;
+  align-items: center;
+}
+
+.download-item__backend {
+  display: inline-block;
+  margin-left: 6px;
+  padding: 1px 6px;
+  border-radius: var(--radius-full);
+  font-size: 10px;
+  font-weight: var(--font-semibold);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.download-item__backend--video {
+  background: var(--color-info-light);
+  color: var(--color-info);
+}
+
+.download-item__backend--images {
+  background: var(--color-success-light);
+  color: var(--color-success);
+}
+
+/* Action buttons container */
+.download-item__actions {
+  display: flex;
+  gap: 2px;
+  flex-shrink: 0;
+}
+
+/* Individual action button */
+.download-item__action-btn {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-sm);
+  color: var(--color-text-secondary);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  outline: none;
+}
+
+.download-item__action-btn:hover {
+  background-color: var(--color-bg-hover);
+  color: var(--color-text-primary);
+}
+
+.download-item__action-btn:active {
+  background-color: var(--color-bg-active);
+  transform: scale(0.9);
+}
+
+.download-item__action-btn:focus-visible {
+  outline: 2px solid var(--color-border-focus);
+  outline-offset: -2px;
+}
+
+/* Danger action (remove/cancel) */
+.download-item__action-btn--danger:hover {
+  color: var(--color-error);
+  background-color: var(--color-error-light);
+}
+
+/* Progress section */
+.download-item__progress {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+/* Progress stats row */
+.download-item__stats {
+  display: flex;
+  justify-content: space-between;
+  font-size: var(--font-xs);
+  color: var(--color-text-tertiary);
+  font-variant-numeric: tabular-nums;
+}
+
+.download-item__stats-left {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.download-item__stats-right {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.download-item__speed {
+  color: var(--color-accent);
+  font-weight: var(--font-medium);
+}
+
+.download-item__eta {
+  color: var(--color-text-tertiary);
+}
+
+/* Error message */
+.download-item__completed-info {
+  font-size: var(--font-xs);
+  color: var(--color-success);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  background-color: var(--color-success-light);
+  border-radius: var(--radius-sm);
+}
+
+.download-item__error {
+  font-size: var(--font-xs);
+  color: var(--color-error);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  background-color: var(--color-error-light);
+  border-radius: var(--radius-sm);
+  animation: downloadErrorIn 0.2s ease-out;
+}
+
+@keyframes downloadErrorIn {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Expandable details section */
+.download-item__details {
+  padding-top: var(--spacing-sm);
+  border-top: 1px solid var(--color-border-primary);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+  font-size: var(--font-xs);
+  color: var(--color-text-secondary);
+}
+
+.download-item__details-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.download-item__details-label {
+  color: var(--color-text-tertiary);
+}
+
+/* Downloading pulse animation */
+.download-item--downloading {
+  animation: downloadItemPulse 3s ease-in-out infinite;
+}
+
+@keyframes downloadItemPulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 transparent;
+  }
+  50% {
+    box-shadow: 0 0 0 1px var(--color-accent-light);
+  }
+}
+
+/* Completed item subtle green tint */
+.download-item--completed {
+  opacity: 0.85;
+}
+
+.download-item--completed:hover {
+  opacity: 1;
+}

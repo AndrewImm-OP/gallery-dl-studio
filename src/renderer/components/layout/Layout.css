@@ -1,0 +1,94 @@
+/* Layout.css — Full application layout: sidebar + main area */
+
+.layout {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  background-color: var(--color-bg-primary);
+}
+
+.layout__content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  overflow: hidden;
+  min-width: 0;
+}
+
+.layout__main {
+  flex: 1;
+  overflow: auto;
+  padding: var(--spacing-lg);
+  background-color: var(--color-bg-primary);
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar for main content */
+.layout__main::-webkit-scrollbar {
+  width: 6px;
+}
+
+.layout__main::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.layout__main::-webkit-scrollbar-thumb {
+  background-color: var(--color-scrollbar);
+  border-radius: var(--radius-full);
+  transition: background-color var(--transition-fast);
+}
+
+.layout__main::-webkit-scrollbar-thumb:hover {
+  background-color: var(--color-scrollbar-hover);
+}
+
+/* Glass morphism overlay for elevated sections */
+.layout__glass {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.03) 0%,
+    rgba(255, 255, 255, 0.01) 100%
+  );
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+/* Smooth transitions when sidebar collapses */
+.layout--sidebar-collapsed .layout__content {
+  transition: margin-left var(--transition-normal);
+}
+
+/* Responsive: stack on very small windows */
+@media (max-width: 640px) {
+  .layout {
+    flex-direction: column;
+  }
+
+  .layout__main {
+    padding: var(--spacing-md);
+  }
+}
+
+/* Animation for page content entry */
+.layout__main > * {
+  animation: layoutFadeIn 0.2s ease-out;
+}
+
+@keyframes layoutFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Focus-visible outline for accessibility within main */
+.layout__main :focus-visible {
+  outline: 2px solid var(--color-border-focus);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}

@@ -1,0 +1,233 @@
+.dedup-page {
+  padding: 24px 32px;
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.dedup-page__loading {
+  padding: 48px;
+  text-align: center;
+  color: var(--color-text-secondary);
+}
+
+.dedup-page__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.dedup-page__title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 24px;
+  font-weight: 600;
+  margin: 0;
+  color: var(--color-text-primary);
+}
+
+.dedup-page__subtitle {
+  margin: 6px 0 0;
+  color: var(--color-text-secondary);
+  font-size: 14px;
+}
+
+.dedup-page__section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.dedup-page__section-title {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0;
+  color: var(--color-text-primary);
+}
+
+.dedup-page__card {
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.dedup-page__path-row {
+  display: flex;
+  gap: 12px;
+  align-items: flex-end;
+}
+
+.dedup-page__path-input {
+  flex: 1;
+}
+
+.dedup-page__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+}
+
+.dedup-page__toggle-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-top: 1px solid var(--color-border);
+}
+
+.dedup-page__toggle-label {
+  font-weight: 500;
+  color: var(--color-text-primary);
+}
+
+.dedup-page__toggle-desc {
+  font-size: 12px;
+  color: var(--color-text-secondary);
+}
+
+.dedup-page__warning {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  padding: 10px 12px;
+  background: rgba(245, 158, 11, 0.12);
+  color: #b45309;
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  border-radius: 8px;
+  font-size: 13px;
+}
+
+.dedup-page__actions {
+  display: flex;
+  gap: 8px;
+}
+
+.dedup-page__progress {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.dedup-page__progress-label {
+  font-size: 12px;
+  color: var(--color-text-secondary);
+}
+
+.dedup-page__stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 8px;
+  padding: 12px;
+  background: var(--color-bg-tertiary, rgba(0, 0, 0, 0.04));
+  border-radius: 8px;
+  font-size: 13px;
+  color: var(--color-text-secondary);
+}
+
+.dedup-page__stats strong {
+  color: var(--color-text-primary);
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.dedup-page__errors {
+  font-size: 12px;
+  color: #b91c1c;
+}
+.dedup-page__errors ul {
+  margin: 6px 0 0 18px;
+  padding: 0;
+}
+
+.dedup-page__groups {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-height: 480px;
+  overflow-y: auto;
+}
+
+.dedup-page__group {
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: 13px;
+}
+
+.dedup-page__group-header {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.dedup-page__group-keeper {
+  color: var(--color-text-primary);
+  font-weight: 500;
+  word-break: break-all;
+}
+
+.dedup-page__group-dups {
+  margin: 6px 0 0 18px;
+  padding: 0;
+  color: var(--color-text-secondary);
+}
+
+.dedup-page__group-dups li {
+  word-break: break-all;
+  padding: 2px 0;
+}
+
+.dedup-page__badge {
+  text-transform: uppercase;
+  font-size: 10px;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-weight: 600;
+}
+.dedup-page__badge--exact {
+  background: rgba(16, 185, 129, 0.18);
+  color: #047857;
+}
+.dedup-page__badge--perceptual {
+  background: rgba(124, 58, 237, 0.18);
+  color: #6d28d9;
+}
+
+.dedup-page__empty {
+  color: var(--color-text-secondary);
+  font-size: 13px;
+}
+
+.dedup-page__reports {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.dedup-page__report-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--color-border);
+}
+.dedup-page__report-row:last-child {
+  border-bottom: none;
+}
+
+.dedup-page__report-dir {
+  font-weight: 500;
+  word-break: break-all;
+}
+
+.dedup-page__report-meta {
+  font-size: 12px;
+  color: var(--color-text-secondary);
+}

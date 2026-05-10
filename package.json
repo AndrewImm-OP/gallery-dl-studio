@@ -1,0 +1,37 @@
+{
+  "name": "gallery-dl-studio",
+  "version": "9.93.0",
+  "description": "Beautiful GUI for gallery-dl - download images and media from 180+ sites",
+  "homepage": "https://github.com/gallery-dl-studio/gallery-dl-studio",
+  "author": {
+    "name": "Gallery-DL Studio",
+    "email": "noreply@gallery-dl-studio.local"
+  },
+  "main": "dist-electron/main/index.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build && electron-builder",
+    "preview": "vite preview",
+    "electron:dev": "vite --config vite.config.ts"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.26.0",
+    "zustand": "^4.5.4",
+    "lucide-react": "^0.441.0",
+    "framer-motion": "^11.5.0",
+    "date-fns": "^3.6.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.5",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^4.3.1",
+    "electron": "^32.1.0",
+    "electron-builder": "^25.0.5",
+    "typescript": "^5.5.4",
+    "vite": "^5.4.3",
+    "vite-plugin-electron": "^0.28.7",
+    "vite-plugin-electron-renderer": "^0.14.5"
+  }
+}

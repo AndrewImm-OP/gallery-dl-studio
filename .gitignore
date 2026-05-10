@@ -1,0 +1,53 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+dist-electron/
+release/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# TypeScript
+*.tsbuildinfo
+
+# Vite
+vite.config.ts.timestamp-*
+
+# Downloaded galleries (test artifacts at project root)
+/bluesky/
+/hentairox/
+/hitomi/
+/twitter/
+/mastodon/
+/pornpics/
+
+# AUR build artifacts (keep PKGBUILD, drop pkg/src/tarballs)
+aur/*/pkg/
+aur/*/src/
+aur/*/*.pkg.tar.*
+aur/*/*.tar.gz
+
+# Dedup runtime output
+.duplicates/

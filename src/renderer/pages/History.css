@@ -1,0 +1,277 @@
+/* History.css — History page with search, filters, table, pagination */
+
+.history-page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+  height: 100%;
+}
+
+/* Page header row */
+.history-page__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+}
+
+.history-page__header-left {
+  flex: 1;
+}
+
+.history-page__title {
+  font-size: var(--font-2xl);
+  font-weight: var(--font-bold);
+  color: var(--color-text-primary);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+.history-page__subtitle {
+  font-size: var(--font-sm);
+  color: var(--color-text-secondary);
+  margin-top: 4px;
+}
+
+.history-page__header-actions {
+  display: flex;
+  gap: var(--spacing-sm);
+  flex-shrink: 0;
+}
+
+/* Filter bar */
+.history-page__filters {
+  display: flex;
+  gap: var(--spacing-md);
+  align-items: flex-end;
+  flex-shrink: 0;
+}
+
+.history-page__search {
+  flex: 1;
+}
+
+.history-page__filter-select {
+  width: 160px;
+  flex-shrink: 0;
+}
+
+.history-page__sort-select {
+  width: 140px;
+  flex-shrink: 0;
+}
+
+/* Filter chips (used alongside the dropdowns) */
+.history-page__chips {
+  display: flex;
+  gap: var(--spacing-xs);
+  flex-wrap: wrap;
+  padding-bottom: var(--spacing-sm);
+}
+
+.history-page__chip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  padding: 4px 10px;
+  font-size: var(--font-xs);
+  font-weight: var(--font-medium);
+  background-color: var(--color-bg-tertiary);
+  color: var(--color-text-secondary);
+  border-radius: var(--radius-full);
+  border: 1px solid var(--color-border-primary);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  font-family: inherit;
+  outline: none;
+}
+
+.history-page__chip:hover {
+  background-color: var(--color-bg-hover);
+  border-color: var(--color-border-secondary);
+}
+
+.history-page__chip--active {
+  background-color: var(--color-accent-light);
+  color: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
+/* History list */
+.history-page__list {
+  flex: 1;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.history-page__list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.history-page__list::-webkit-scrollbar-thumb {
+  background-color: var(--color-scrollbar);
+  border-radius: var(--radius-full);
+}
+
+/* Select all row */
+.history-page__select-all {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-xs) var(--spacing-md);
+  font-size: var(--font-xs);
+  color: var(--color-text-tertiary);
+  user-select: none;
+}
+
+.history-page__select-all input[type='checkbox'] {
+  accent-color: var(--color-accent);
+}
+
+/* History entry card */
+.history-page__entry {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  padding: var(--spacing-md);
+  background-color: var(--color-bg-secondary);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border-primary);
+  transition: all var(--transition-fast);
+}
+
+.history-page__entry:hover {
+  border-color: var(--color-border-secondary);
+  box-shadow: var(--shadow-sm);
+}
+
+.history-page__entry--selected {
+  background-color: var(--color-accent-light);
+  border-color: color-mix(in srgb, var(--color-accent) 30%, transparent);
+}
+
+.history-page__entry input[type='checkbox'] {
+  accent-color: var(--color-accent);
+  flex-shrink: 0;
+}
+
+/* Entry thumbnail */
+.history-page__entry-thumbnail {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-sm);
+  object-fit: cover;
+  flex-shrink: 0;
+  background-color: var(--color-bg-tertiary);
+}
+
+/* Entry info */
+.history-page__entry-info {
+  flex: 1;
+  overflow: hidden;
+}
+
+.history-page__entry-title {
+  font-size: var(--font-sm);
+  font-weight: var(--font-medium);
+  color: var(--color-text-primary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.history-page__entry-meta {
+  font-size: var(--font-xs);
+  color: var(--color-text-tertiary);
+  margin-top: 2px;
+}
+
+.history-page__entry-date {
+  font-size: var(--font-xs);
+  color: var(--color-text-tertiary);
+  margin-top: 2px;
+}
+
+/* Entry actions */
+.history-page__entry-actions {
+  display: flex;
+  gap: var(--spacing-xs);
+  flex-shrink: 0;
+  opacity: 0.6;
+  transition: opacity var(--transition-fast);
+}
+
+.history-page__entry:hover .history-page__entry-actions {
+  opacity: 1;
+}
+
+/* Empty state */
+.history-page__empty {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-md);
+  color: var(--color-text-tertiary);
+  padding: var(--spacing-2xl);
+  text-align: center;
+}
+
+.history-page__empty-icon {
+  opacity: 0.4;
+}
+
+.history-page__empty-text {
+  font-size: var(--font-sm);
+  line-height: 1.5;
+}
+
+/* Pagination */
+.history-page__pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-sm) 0;
+  flex-shrink: 0;
+}
+
+.history-page__pagination-text {
+  font-size: var(--font-sm);
+  color: var(--color-text-secondary);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Batch action toolbar */
+.history-page__batch-bar {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-sm) var(--spacing-md);
+  background-color: var(--color-accent-light);
+  border-radius: var(--radius-md);
+  font-size: var(--font-sm);
+  color: var(--color-accent);
+  animation: historyBatchIn 0.2s ease-out;
+}
+
+@keyframes historyBatchIn {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.history-page__batch-count {
+  font-weight: var(--font-semibold);
+}

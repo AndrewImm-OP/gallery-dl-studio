@@ -1,0 +1,245 @@
+/* Button.css — Comprehensive button system */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-xs);
+  border-radius: var(--radius-md);
+  font-weight: var(--font-medium);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all var(--transition-fast);
+  position: relative;
+  overflow: hidden;
+  outline: none;
+  border: none;
+  text-decoration: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  font-family: inherit;
+  line-height: 1;
+}
+
+/* ==================== VARIANTS ==================== */
+
+/* Primary — gradient accent */
+.btn--primary {
+  background: linear-gradient(135deg, var(--color-accent), var(--color-accent-hover));
+  color: var(--color-text-inverse);
+  border: 1px solid transparent;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.08);
+}
+
+.btn--primary:hover:not(:disabled) {
+  background: linear-gradient(135deg, var(--color-accent-hover), var(--color-accent));
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3), 0 2px 4px rgba(0, 0, 0, 0.08);
+  transform: translateY(-1px);
+}
+
+.btn--primary:active:not(:disabled) {
+  transform: translateY(0);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Secondary — outlined */
+.btn--secondary {
+  background-color: transparent;
+  color: var(--color-text-primary);
+  border: 1px solid var(--color-border-primary);
+}
+
+.btn--secondary:hover:not(:disabled) {
+  background-color: var(--color-bg-hover);
+  border-color: var(--color-border-secondary);
+}
+
+.btn--secondary:active:not(:disabled) {
+  background-color: var(--color-bg-active);
+}
+
+/* Ghost — transparent */
+.btn--ghost {
+  background-color: transparent;
+  color: var(--color-text-secondary);
+  border: 1px solid transparent;
+}
+
+.btn--ghost:hover:not(:disabled) {
+  background-color: var(--color-bg-hover);
+  color: var(--color-text-primary);
+}
+
+.btn--ghost:active:not(:disabled) {
+  background-color: var(--color-bg-active);
+}
+
+/* Danger — red */
+.btn--danger {
+  background-color: var(--color-error);
+  color: #ffffff;
+  border: 1px solid transparent;
+  box-shadow: 0 1px 3px rgba(239, 68, 68, 0.15);
+}
+
+.btn--danger:hover:not(:disabled) {
+  background-color: color-mix(in srgb, var(--color-error) 85%, black);
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.25);
+  transform: translateY(-1px);
+}
+
+.btn--danger:active:not(:disabled) {
+  transform: translateY(0);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* ==================== SIZES ==================== */
+
+.btn--sm {
+  padding: 4px 12px;
+  font-size: var(--font-xs);
+  height: 28px;
+  border-radius: var(--radius-sm);
+}
+
+.btn--md {
+  padding: 6px 16px;
+  font-size: var(--font-sm);
+  height: 36px;
+}
+
+.btn--lg {
+  padding: 8px 24px;
+  font-size: var(--font-md);
+  height: 44px;
+  border-radius: var(--radius-lg);
+}
+
+/* ==================== STATES ==================== */
+
+/* Disabled */
+.btn:disabled,
+.btn--disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* Loading */
+.btn--loading {
+  cursor: wait;
+  pointer-events: none;
+}
+
+.btn--loading .btn__content {
+  opacity: 0;
+}
+
+/* Loading spinner */
+.btn__spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid currentColor;
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: btnSpin 0.6s linear infinite;
+}
+
+.btn--loading .btn__spinner {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes btnSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Focus ring */
+.btn:focus-visible {
+  outline: 2px solid var(--color-border-focus);
+  outline-offset: 2px;
+}
+
+/* ==================== ICON BUTTON ==================== */
+
+.btn--icon-only {
+  padding: 0;
+  aspect-ratio: 1;
+}
+
+.btn--icon-only.btn--sm {
+  width: 28px;
+}
+
+.btn--icon-only.btn--md {
+  width: 36px;
+}
+
+.btn--icon-only.btn--lg {
+  width: 44px;
+}
+
+/* ==================== BUTTON CONTENT ==================== */
+
+.btn__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.btn__label {
+  display: flex;
+  align-items: center;
+}
+
+/* ==================== RIPPLE EFFECT ==================== */
+
+.btn::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.25) 0%, transparent 70%);
+  opacity: 0;
+  transform: scale(0);
+  transition: opacity 0.3s, transform 0.3s;
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.btn:active::after {
+  opacity: 1;
+  transform: scale(2.5);
+  transition: opacity 0s, transform 0s;
+}
+
+/* ==================== BUTTON GROUP ==================== */
+
+.btn-group {
+  display: flex;
+  gap: var(--spacing-xs);
+}
+
+.btn-group--attached {
+  gap: 0;
+}
+
+.btn-group--attached .btn {
+  border-radius: 0;
+}
+
+.btn-group--attached .btn:first-child {
+  border-radius: var(--radius-md) 0 0 var(--radius-md);
+}
+
+.btn-group--attached .btn:last-child {
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+}
+
+.btn-group--attached .btn + .btn {
+  margin-left: -1px;
+}

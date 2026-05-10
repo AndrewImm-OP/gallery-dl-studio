@@ -1,0 +1,174 @@
+/* Input.css — Input fields with labels, icons, error states */
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+/* Label */
+.input-label {
+  font-size: var(--font-sm);
+  font-weight: var(--font-medium);
+  color: var(--color-text-primary);
+  user-select: none;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+}
+
+.input-label__required {
+  color: var(--color-error);
+  font-size: var(--font-xs);
+}
+
+/* Input wrapper — positions icons relative to field */
+.input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+/* The actual input field */
+.input {
+  width: 100%;
+  height: 40px;
+  padding: 0 var(--spacing-md);
+  background-color: var(--color-input-bg);
+  border: 1px solid var(--color-input-border);
+  border-radius: var(--radius-md);
+  font-size: var(--font-sm);
+  font-family: inherit;
+  color: var(--color-text-primary);
+  outline: none;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.input::placeholder {
+  color: var(--color-text-tertiary);
+}
+
+/* Focus state */
+.input:focus {
+  border-color: var(--color-input-focus);
+  box-shadow: 0 0 0 3px var(--color-accent-light);
+}
+
+/* Hover state (when not focused) */
+.input:hover:not(:focus):not(:disabled):not(.input--error) {
+  border-color: var(--color-border-secondary);
+}
+
+/* Error state */
+.input--error {
+  border-color: var(--color-error);
+}
+
+.input--error:focus {
+  border-color: var(--color-error);
+  box-shadow: 0 0 0 3px var(--color-error-light);
+}
+
+/* Disabled state */
+.input:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  background-color: var(--color-bg-tertiary);
+}
+
+/* With left icon */
+.input--has-left-icon {
+  padding-left: 40px;
+}
+
+/* With right icon */
+.input--has-right-icon {
+  padding-right: 40px;
+}
+
+/* Left icon */
+.input-icon--left {
+  position: absolute;
+  left: 12px;
+  display: flex;
+  align-items: center;
+  color: var(--color-text-tertiary);
+  pointer-events: none;
+  transition: color var(--transition-fast);
+}
+
+.input:focus ~ .input-icon--left,
+.input-wrapper:focus-within .input-icon--left {
+  color: var(--color-input-focus);
+}
+
+/* Right icon */
+.input-icon--right {
+  position: absolute;
+  right: 12px;
+  display: flex;
+  align-items: center;
+  color: var(--color-text-tertiary);
+}
+
+/* Error message */
+.input-error {
+  font-size: var(--font-xs);
+  color: var(--color-error);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  animation: inputErrorIn 0.15s ease-out;
+}
+
+@keyframes inputErrorIn {
+  from {
+    opacity: 0;
+    transform: translateY(-2px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Helper text */
+.input-helper {
+  font-size: var(--font-xs);
+  color: var(--color-text-tertiary);
+}
+
+/* Textarea variant */
+.input--textarea {
+  height: auto;
+  min-height: 80px;
+  padding: var(--spacing-sm) var(--spacing-md);
+  resize: vertical;
+  line-height: 1.5;
+  font-family: inherit;
+}
+
+/* Number input — remove spinners for cleaner look */
+.input[type='number']::-webkit-outer-spin-button,
+.input[type='number']::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.input[type='number'] {
+  -moz-appearance: textfield;
+}
+
+/* Compact size variant */
+.input--sm {
+  height: 32px;
+  font-size: var(--font-xs);
+  border-radius: var(--radius-sm);
+}
+
+/* Large size variant */
+.input--lg {
+  height: 48px;
+  font-size: var(--font-md);
+  border-radius: var(--radius-lg);
+}

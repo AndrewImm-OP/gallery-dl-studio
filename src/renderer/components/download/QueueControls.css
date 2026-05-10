@@ -1,0 +1,135 @@
+/* QueueControls.css — Queue control bar with status badges and batch actions */
+
+.queue-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-sm) 0;
+  gap: var(--spacing-md);
+}
+
+/* Status section (left side) */
+.queue-controls__status {
+  display: flex;
+  gap: var(--spacing-sm);
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* Queue title */
+.queue-controls__title {
+  font-size: var(--font-sm);
+  font-weight: var(--font-semibold);
+  color: var(--color-text-primary);
+  white-space: nowrap;
+}
+
+/* Empty state text */
+.queue-controls__empty {
+  font-size: var(--font-sm);
+  color: var(--color-text-tertiary);
+}
+
+/* Status badges grouping */
+.queue-controls__badges {
+  display: flex;
+  gap: var(--spacing-xs);
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+/* Actions section (right side) */
+.queue-controls__actions {
+  display: flex;
+  gap: var(--spacing-xs);
+  flex-shrink: 0;
+  align-items: center;
+}
+
+/* Separator between badge groups and actions */
+.queue-controls__separator {
+  width: 1px;
+  height: 16px;
+  background-color: var(--color-border-primary);
+  opacity: 0.5;
+  margin: 0 var(--spacing-xs);
+}
+
+/* Summary stats row */
+.queue-controls__summary {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  font-size: var(--font-xs);
+  color: var(--color-text-tertiary);
+  font-variant-numeric: tabular-nums;
+}
+
+.queue-controls__stat {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+}
+
+.queue-controls__stat-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.queue-controls__stat-value {
+  font-weight: var(--font-medium);
+  color: var(--color-text-secondary);
+}
+
+/* Filter/sort section */
+.queue-controls__filters {
+  display: flex;
+  gap: var(--spacing-sm);
+  align-items: center;
+  margin-left: auto;
+}
+
+/* Speed display */
+.queue-controls__speed {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  font-size: var(--font-xs);
+  color: var(--color-accent);
+  font-weight: var(--font-medium);
+  font-variant-numeric: tabular-nums;
+  padding: 2px var(--spacing-sm);
+  background-color: var(--color-accent-light);
+  border-radius: var(--radius-full);
+}
+
+/* Responsive: stack on narrow */
+@media (max-width: 600px) {
+  .queue-controls {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--spacing-sm);
+  }
+
+  .queue-controls__actions {
+    width: 100%;
+    justify-content: flex-end;
+  }
+}
+
+/* Subtle animation for badges appearing */
+.queue-controls__badges > * {
+  animation: queueBadgeIn 0.2s ease-out;
+}
+
+@keyframes queueBadgeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

@@ -1,0 +1,27 @@
+pkgbase = gallery-dl-studio
+	pkgdesc = Beautiful GUI for gallery-dl - download images and media from 180+ sites
+	pkgver = 9.93.0
+	pkgrel = 1
+	url = https://github.com/gallery-dl-studio/gallery-dl-studio
+	arch = x86_64
+	license = MIT
+	makedepends = nodejs>=18
+	makedepends = npm
+	depends = gtk3
+	depends = nss
+	depends = libxss
+	depends = libnotify
+	depends = alsa-lib
+	depends = libsecret
+	optdepends = gallery-dl: image gallery downloader backend
+	optdepends = yt-dlp: video downloader backend
+	options = !strip
+	options = !debug
+	source = gallery-dl-studio-9.93.0.tar.gz
+	source = gallery-dl-studio.desktop
+	source = gallery-dl-studio.sh
+	sha256sums = cdb31d96c0a63aeecd502e2bad23f744eaa81f898279e37c21825a207f9aef02
+	sha256sums = SKIP
+	sha256sums = SKIP
+
+pkgname = gallery-dl-studio
