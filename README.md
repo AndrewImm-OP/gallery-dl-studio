@@ -111,42 +111,68 @@
 
 ## 📦 Установка
 
-### Требования
+Все готовые сборки лежат на странице [**Releases**](https://github.com/AndrewImm-OP/gallery-dl-studio/releases/latest).
 
-- **Node.js** 18+ ([скачать](https://nodejs.org/))
-- **npm** или **yarn**
-- **Python** 3.8+ ([скачать](https://www.python.org/))
-- **gallery-dl** — установите через pip:
-  ```bash
-  pip install gallery-dl
-  ```
+### Debian / Ubuntu / Mint / Pop!_OS
+
+```bash
+wget https://github.com/AndrewImm-OP/gallery-dl-studio/releases/download/v9.93.0/gallery-dl-studio_9.93.0_amd64.deb
+sudo apt install ./gallery-dl-studio_9.93.0_amd64.deb
+```
+
+`apt` установит все системные зависимости автоматически и предложит поставить `gallery-dl` и `yt-dlp` (рекомендуемые бэкенды).
+
+### Arch Linux / CachyOS / Manjaro
+
+```bash
+yay -S gallery-dl-studio
+```
+
+или вручную:
+
+```bash
+git clone https://aur.archlinux.org/gallery-dl-studio.git
+cd gallery-dl-studio
+makepkg -si
+```
+
+### AppImage (любой Linux)
+
+```bash
+wget https://github.com/AndrewImm-OP/gallery-dl-studio/releases/download/v9.93.0/Gallery-DL.Studio-9.93.0.AppImage
+chmod +x Gallery-DL.Studio-9.93.0.AppImage
+./Gallery-DL.Studio-9.93.0.AppImage
+```
+
+### Бэкенды
+
+Для полной функциональности нужны `gallery-dl` (галереи) и/или `yt-dlp` (видео):
+
+```bash
+# Debian/Ubuntu
+sudo apt install gallery-dl yt-dlp
+
+# Arch
+sudo pacman -S yt-dlp && yay -S gallery-dl
+
+# Fedora
+sudo dnf install gallery-dl yt-dlp
+
+# через pip (любой дистрибутив)
+pip install gallery-dl yt-dlp
+```
 
 ### Сборка из исходников
 
 ```bash
-# Клонирование репозитория
-git clone https://github.com/your-username/gallery-dl-studio.git
+git clone https://github.com/AndrewImm-OP/gallery-dl-studio.git
 cd gallery-dl-studio
-
-# Установка зависимостей
 npm install
-
-# Запуск в режиме разработки
-npm run dev
-
-# Сборка продакшен-версии
-npm run build
+npm run dev          # режим разработки
+npm run build        # production-сборка → release/
 ```
 
-Собранные установщики будут находиться в директории `release/`.
-
-### Готовые сборки
-
-| Платформа | Формат |
-|---|---|
-| 🐧 Linux | AppImage, .deb |
-| 🪟 Windows | NSIS-установщик |
-| 🍎 macOS | .dmg |
+Требуется **Node.js 18+** и **npm**.
 
 ---
 
