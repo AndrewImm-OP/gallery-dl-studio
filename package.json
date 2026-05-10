@@ -2,10 +2,15 @@
   "name": "gallery-dl-studio",
   "version": "9.93.0",
   "description": "Beautiful GUI for gallery-dl - download images and media from 180+ sites",
-  "homepage": "https://github.com/gallery-dl-studio/gallery-dl-studio",
+  "homepage": "https://github.com/AndrewImm-OP/gallery-dl-studio",
+  "license": "MIT",
   "author": {
-    "name": "Gallery-DL Studio",
-    "email": "noreply@gallery-dl-studio.local"
+    "name": "AndrewImm-OP",
+    "email": "bessmertnyja89@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AndrewImm-OP/gallery-dl-studio.git"
   },
   "main": "dist-electron/main/index.js",
   "scripts": {

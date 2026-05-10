@@ -1,6 +1,6 @@
 appId: com.gallery-dl-studio.app
 productName: Gallery-DL Studio
-copyright: Copyright © 2024
+copyright: Copyright © 2026 AndrewImm-OP
 
 directories:
   buildResources: resources
@@ -17,9 +17,29 @@ linux:
   target:
     - AppImage
     - deb
-  category: Utility
+  category: Network;FileTransfer;Graphics
   icon: resources/icon.png
-  maintainer: noreply@gallery-dl-studio.local
+  maintainer: AndrewImm-OP <bessmertnyja89@gmail.com>
+  vendor: AndrewImm-OP
+  desktop:
+    StartupWMClass: Gallery-DL Studio
+    Keywords: gallery;download;images;media;gallery-dl;yt-dlp;
+
+deb:
+  priority: optional
+  depends:
+    - libgtk-3-0
+    - libnotify4
+    - libnss3
+    - libxss1
+    - libxtst6
+    - xdg-utils
+    - libatspi2.0-0
+    - libuuid1
+    - libsecret-1-0
+  recommends:
+    - gallery-dl
+    - yt-dlp
 
 win:
   target:
